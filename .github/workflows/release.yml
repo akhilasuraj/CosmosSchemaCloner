@@ -38,5 +38,4 @@ jobs:
           tag_name: v${{ github.run_number }}
           name: Release v${{ github.run_number }}
           files: ./CosmosSchemaCloner.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: '${{ secrets.GH_PAT }}'
