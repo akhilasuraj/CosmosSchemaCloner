@@ -6,6 +6,8 @@ internal abstract class Program
 {
     private static async Task Main()
     {
+        Console.WriteLine("This tool clones the structure of an Azure Cosmos DB database to a local emulator.\n");
+        
         var azureDbConnectionString = GetConnectionString("azureDbConnectionString");
         var emulatorDbConnectionString = GetConnectionString("emulatorDbConnectionString");
 
@@ -87,7 +89,7 @@ internal abstract class Program
             return line[$"{key}=".Length..].Trim();
         }
 
-        Console.WriteLine($"{key} not found in config file. Using default value.");
+        Console.WriteLine($"{key} not found in config file. \n Please update the config.txt file with Connection string value.");
         return string.Empty;
     }
 
