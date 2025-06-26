@@ -23,15 +23,29 @@ emulatorDbConnectionString=YOUR_EMULATOR_CONNECTION_STRING
 The tool will auto-generate this file with empty values if it does not exist. Fill in the correct connection strings.
 
 ## Usage
-1. Build and publish the project as a single executable:
-   ```sh
-   dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+
+### Option 1: Download Release (Recommended)
+1. Download the latest release from the [GitHub Releases page](https://github.com/akhilasuraj/CosmosSchemaCloner/releases)
+2. Extract the ZIP file to a directory of your choice
+3. Open the extracted folder and edit the `config.txt` file with your connection strings:
    ```
-2. Run the generated executable from the `bin/Release/net9.0/win-x64/publish/` directory:
+   azureDbConnectionString=YOUR_AZURE_COSMOS_DB_CONNECTION_STRING
+   emulatorDbConnectionString=YOUR_EMULATOR_CONNECTION_STRING
+   ```
+4. Run `CosmosSchemaCloner.exe`
+5. Follow the console instructions. The tool will display progress and notify you when cloning is complete.
+
+### Option 2: Build from Source
+1. Clone the repository
+2. Build and publish the project as a single executable:
+   ```sh
+   dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+   ```
+3. Run the generated executable from the `bin/Release/net9.0/win-x64/publish/` directory:
    ```sh
    CosmosSchemaCloner.exe
    ```
-3. Follow the console instructions. The tool will display progress and notify you when cloning is complete.
+4. Follow the console instructions. The tool will display progress and notify you when cloning is complete.
 
 ## Notes
 - Only the structure (not the data) is cloned.
